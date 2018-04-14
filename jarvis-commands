@@ -1,0 +1,24 @@
+*AIDE*==jv_display_commands
+*BONJOUR*|*SALUT*==say "Bonjour $username"
+*COMMENT*APPELLE*==say "Je m'appelle $trigger"
+*MERCI*==say "De rien"
+*AU REVOIR*|*BYE*==say "Au revoir $username"; jv_exit
+ANNULE*|TERMINE*==bypass=false; say "Ok"
+ENCORE*==jv_repeat_last_command
+*TEST*==say "Ca fonctionne!"
+*VERSION*==say "Je suis en version $jv_version"
+*REPETE (*) ET (*)==say "(1) (2)"
+*CA VA*==say "Très bien et toi ça va?"
+>*OUI*==say "ravi de l'entendre"
+>*NON*|*PAS*==say "j'en suis navré"
+
+*MET A JOUR LE RASPI*==say "Mise à jour en cours..." && sudo apt-get update && say "Paquets mis à jour, dois-je les installer ?"
+>*OUI*==say "Très, bien" && sudo apt-get -y upgrade && say "Mise à jour installer !"
+>*NON*== "Ok, je ne télécharge pas les MAJ"
+
+AJOUTE (*) A LA LISTE*==echo "(1)" >> ~/liste.txt && say "J'ai ajouté (1) à la liste"
+*SUPPRIME*LA LISTE*|*VIDE*LA*LISTE*==say "Voulez-vous vraiment vider la liste ?"
+>*OUI*==rm ~/liste.txt && say "J'ai bien supprimé la liste"
+>*NON*==say "Très bien je n'y touche pas"
+*AFFICHE LA LISTE*|*LIS LA LISTE*|*QUOI*DANS*LA*LISTE*== say "Voici votre liste:" && read_file
+*ENVOI*LA*LISTE*MAIL*==mpack -s "Votre liste Jarvis" /home/pi/liste.txt enzobes@gmail.com && say "Je vous transfère la liste par mail"
