@@ -22,5 +22,3 @@ AJOUTE (*) A LA LISTE*==echo "(1)" >> ~/liste.txt && say "J'ai ajouté (1) à la
 >*NON*==say "Très bien je n'y touche pas"
 *AFFICHE LA LISTE*|*LIS LA LISTE*|*QUOI*DANS*LA*LISTE*== say "Voici votre liste:" && read_file
 *PLUIT*|*PLUIE*|*PLEUVOIR* == pluie_dans_une_heure
-
-*DEBIT*INTERNET*|*ADSL*|==say "Je test actuellement votre connexion ..." && speedtest-cli
