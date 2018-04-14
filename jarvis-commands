@@ -12,15 +12,15 @@ ENCORE*==jv_repeat_last_command
 >*OUI*==say "ravi de l'entendre"
 >*NON*|*PAS*==say "j'en suis navré"
 
-*MET A JOUR LE RASPI*==say "Mise à jour en cours..." && sudo apt-get update && say "Paquets mis à jour, dois-je les installer ?"
+*MISE A JOUR*==say "Mise à jour en cours..." && sudo apt-get update && say "Paquets mis à jour, dois-je les installer ?"
 >*OUI*==say "Très, bien" && sudo apt-get -y upgrade && say "Mise à jour installer !"
 >*NON*== "Ok, je ne télécharge pas les MAJ"
 
-AJOUTE (*) A LA LISTE*==echo "(1)" >> ~/liste.txt && say "J'ai ajouté (1) à la liste"
-*SUPPRIME*LA LISTE*|*VIDE*LA*LISTE*==say "Voulez-vous vraiment vider la liste ?"
+*AJOUTE (*) A LA LISTE*==echo "(1)" >> ~/liste.txt && say "J'ai ajouté (1) à la liste"
+*SUPPRIME LA LISTE*|*VIDE*LA*LISTE*==say "Voulez-vous vraiment vider la liste ?"
 >*OUI*==rm ~/liste.txt && say "J'ai bien supprimé la liste"
 >*NON*==say "Très bien je n'y touche pas"
-*AFFICHE LA LISTE*|*LIS LA LISTE*|*QUOI*DANS*LA*LISTE*== say "Voici votre liste:" && read_file
+*AFFICHE*LA LISTE*|*LIS LA LISTE*|*QUOI*DANS*LA*LISTE*== say "Voici votre liste:" && read_file
 *PLUIT*|*PLUIE*|*PLEUVOIR* == pluie_dans_une_heure
 
 *DEBIT*INTERNET*|*ADSL*|==say "Je test actuellement votre connexion ..." && speedtest-cli
