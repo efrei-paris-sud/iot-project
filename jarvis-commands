@@ -11,6 +11,8 @@ ENCORE*==jv_repeat_last_command
 *CA VA*==say "Très bien et toi ça va?"
 >*OUI*==say "ravi de l'entendre"
 >*NON*|*PAS*==say "j'en suis navré"
+*SENS*VIE*==say "42"
+
 
 *MISE A JOUR*==say "Mise à jour en cours..." && sudo apt-get update && say "Paquets mis à jour, dois-je les installer ?"
 >*OUI*==say "Très, bien" && sudo apt-get -y upgrade && say "Mise à jour installer !"
